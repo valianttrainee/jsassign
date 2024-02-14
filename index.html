@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-container{
+            border: 20px solid transparent ;
+            border-image: linear-gradient(to right,yellowgreen 50%,darkgreen 50%);
+            border-image-slice: 1;
+            margin: 0 !important;
+        }
+        body{
+            margin: 0;
+        }
+       
+        .navbar ul{
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+            text-align: right;
+            display: flex;
+        }
+        .navbar li{
+            display: inline-block;
+            text-align: left;
+        }
+        .navbar a{
+            text-decoration: none;
+            color: black;
+            width: 60px;
+            display: block;
+            position: relative;
+            transition: all 0.4s;
+        }
+        .hover1, .hover2{
+            position: relative;
+            width: 40px !important;
+            margin-right:10px ;
+        }
+        .hover3, .hover4{
+            position: relative;
+            width: 50px !important;
+            margin-right:10px ;
+        }
+        .navbar-toggle{
+            display: none;
+        }
+        .navdiv{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+       .box{
+        width: 15px;
+        height: 35px;
+        border-radius: 50px;
+        border-top: 3px solid darkgreen;
+        border-left: 3px solid darkgreen;
+        border-bottom: 3px solid darkgreen;
+        display: inline-block;
+        text-align: right;
+        padding-left: 18px;
+        align-items: center;
+        display: flex;
+        font-weight: bolder;
+        font-family: sans-serif ;
+        margin-left: 20px;
+       }
+       .img{
+        float: left;
+       }
+       .maindiv{
+       margin-left: auto;
+       margin-right: auto;
+       padding-left: 100px;
+       padding-right: 100px;
+       padding-top: 0;
+       margin-top: 0;
+       height: 70vh;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }
+    .content, h1{
+        font-size: smaller;
+        margin-top: 0;
+    }
+    .heading6{
+        padding-top: 5px;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+    h1{
+        font-size: 30px;
+        color: darkgreen;
+    }
+    .content{
+        text-align: left;
+    }
+    .box2{
+        height: 250px;
+        border-left: 5px solid darkgreen;
+        padding-left: 20px;
+    }
+    .btn{
+        font-size: 10px;
+        color: white;
+        background-color: darkgreen;
+        height: 20px;
+    }
+    
+    .navbar a::after{
+          content: "";
+          width: 100%;
+          height: 3px;
+          background-color: yellowgreen;
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          opacity: 0;
+          transition: all 0.2s;
+          pointer-events: none;
+    }
+    .navbar a:hover::after{
+        opacity: 1;
+    }
+    .logo{
+
+    }
+    @media (max-width: 750px) {
+        .maindiv{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 40px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .box2{
+            border-left: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+            height: 100%;
+        }
+       .content{
+        text-align: center;
+        font-size: 15px;
+       }
+       
+       
+    }
+    @media (max-width: 45em) {
+        .navbar ul{
+            position: fixed;
+            z-index: 1000;
+            inset: 0 0 0 40%;
+            flex-direction: column;
+            justify-content: center;
+            align-self: center;
+            padding: 0rem 6.5rem;
+            gap: 20px;
+            background-color: yellowgreen;
+            transform: translateX(100%);
+            transition: transform 350ms ease-out;
+            
+        }
+        .navbar ul[data-visible="true"]{
+            transform: translateX(0%);
+            transition: transform 350ms ease-out;
+          
+        }
+        .navbar-toggle{
+            display: block;
+            position: absolute;
+            z-index: 9999;
+            background: url('./list.svg');
+            background-repeat: no-repeat;
+            width: 2rem;
+            border: 0;
+            aspect-ratio: 1;
+            top: 2rem;
+            right: 2rem;
+        }
+        .logo{
+            margin-top: 0.5rem;
+        }
+        
+    }
+    @media (max-width: 650px) {
+        .navbar{
+            display: block;
+        }
+        img{
+            display: block !important;
+            height: 150px;
+            width: 150px;
+        }
+        
+    }
+    @media (max-width: 281px){
+        .maindiv{
+            flex-direction: column;
+            height: 100vh;
+            margin: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .content, .heading6{
+            font-size: 12px;
+        }
+        h1{
+            font-size: 20px;
+        }
+        .navbar ul{
+            padding: 4rem;
+        } 
+    }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+    <div class="navbar">
+        <div class="navdiv">
+        <div>
+            <div class></div>
+        <div class="logo box">Shopify</div>
+        </div>
+        <button class="navbar-toggle" aria-controls="navbarul" aria-expanded="false"><span class="sr-only"></span></button>
+        <ul id="navbarul" data-visible="false">
+            <li><a href="#" class="hover1">Home</a></li>
+            <li><a href="#" class="hover2" >Order</a></li>
+            <li><a href="#" class="hover3">Product</a></li>
+            <li><a href="#" class="hover4">Contact</a></li>
+        </ul>
+    </div>
+    </div>
+    <div class="maindiv">
+        <div>
+        <img class="img" src="./css&js img.jpeg" width="300px" height="250px" />
+        </div>
+        <div class="box2">
+        <p class="heading6">ORGANIC<p>
+        <h1>Boston Round</h1>
+        <p class="content">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more 
+        </p>
+        <button class="btn">Shop now</button>
+        </div>
+    </div>
+</div>
+    <script src="onlycssjs.js" charset="UTF-8"></script>
+</body>
+</html>
